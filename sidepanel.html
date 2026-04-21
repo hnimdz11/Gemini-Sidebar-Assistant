@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Gemini Sidebar</title>
+  <link rel="stylesheet" href="sidepanel.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <img src="icon128.png" class="logo" alt="Gemini">
+      <span class="title">Gemini</span>
+    </div>
+    <div class="header-right">
+      <button class="icon-btn" id="themeBtn" title="Sáng / Tối">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" fill="currentColor"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z"/></svg>
+      </button>
+      <button class="icon-btn" id="historyBtn" title="Lịch sử">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" fill="currentColor"><path d="M480-120q-138 0-240.5-91.5T122-440h82q14 104 92.5 172T480-200q117 0 198.5-81.5T760-480q0-117-81.5-198.5T480-760q-69 0-129 32t-101 88h110v80H120v-240h80v94q51-64 124.5-99T480-840q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-480q0 75-28.5 140.5t-77 114q-48.5 48.5-114 77T480-120Zm112-192L440-464v-216h80v184l128 128-56 56Z"/></svg>
+      </button>
+      <button class="icon-btn" id="newChatBtn" title="Chat mới">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" fill="currentColor"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+      </button>
+      <button class="icon-btn" id="settingsBtn" title="Cài đặt">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" fill="currentColor"><path d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm112-260q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Action Bar -->
+  <div class="action-bar">
+    <button id="summarizeBtn" class="action-chip">
+      <svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16" fill="currentColor"><path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520Z"/></svg>
+      Tóm tắt trang
+    </button>
+    <button id="translateBtn" class="action-chip">
+      <svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16" fill="currentColor"><path d="m476-80 182-480h84L924-80h-84l-43-122H603L560-80h-84ZM160-200l-56-56 202-202q-35-38-65-82.5T189-640h82q16 36 38.5 65.5T357-517l10 10 42-42q-25-34-47-73.5T327-710h-87v-80h240v-80h80v80h240v80h-98q-20 54-48 102.5T595-462l85 86-25 68-124-124-157 157ZM636-234h146l-73-206-73 206Z"/></svg>
+      Dịch trang này
+    </button>
+  </div>
+
+  <!-- Chat Container -->
+  <main id="chatContainer">
+    <div class="welcome-message">
+      <h2>Xin chào!</h2>
+      <p>Tôi có thể giúp gì cho bạn hôm nay?</p>
+    </div>
+  </main>
+
+  <!-- Input Area -->
+  <footer class="input-container">
+    <form id="chatForm">
+      <div class="input-wrapper">
+        <textarea id="userInput" placeholder="Nhập câu hỏi tại đây..." rows="1" autofocus></textarea>
+        <button type="submit" id="sendBtn" class="send-btn" disabled>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor"><path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Z"/></svg>
+        </button>
+        <button type="button" id="stopBtn" class="send-btn stop-btn hidden" title="Dừng">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor"><path d="M320-320h320v-320H320v320ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>
+        </button>
+      </div>
+      <div class="footer-text">AI có thể cung cấp thông tin không chính xác.</div>
+    </form>
+  </footer>
+
+  <!-- History Modal -->
+  <div id="historyModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Lịch sử trò chuyện</h3>
+        <button id="closeHistoryBtn" class="icon-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" fill="currentColor"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+        </button>
+      </div>
+      <div id="historyList" class="history-list"></div>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settingsModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Cài đặt</h3>
+        <button id="closeSettingsBtn" class="icon-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" fill="currentColor"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+        </button>
+      </div>
+      <div class="settings-body">
+        <div class="form-group">
+          <label for="apiKey">Gemini API Key</label>
+          <input type="password" id="apiKey" class="settings-input" placeholder="Nhập API Key (AIza...)">
+        </div>
+        <div class="form-group">
+          <label for="geminiModel">Mô hình AI</label>
+          <select id="geminiModel" class="settings-input">
+            <option value="gemini-2.5-flash">Gemini 2.5 Flash (Nhanh)</option>
+            <option value="gemini-2.5-pro">Gemini 2.5 Pro (Sâu)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="summaryStyle">Độ dài tóm tắt</label>
+          <select id="summaryStyle" class="settings-input">
+            <option value="short">Ngắn gọn</option>
+            <option value="medium" selected>Vừa phải</option>
+            <option value="detailed">Chi tiết</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="summaryTone">Văn phong</label>
+          <select id="summaryTone" class="settings-input">
+            <option value="easy" selected>Dễ hiểu</option>
+            <option value="professional">Chuyên nghiệp</option>
+            <option value="casual">Gần gũi</option>
+          </select>
+        </div>
+        <button id="saveSettingsBtn" class="btn-primary">Lưu Cài Đặt</button>
+        <div id="settingsStatus" class="settings-status"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALL scripts MUST be at the very end, AFTER all DOM elements -->
+  <script src="purify.min.js"></script>
+  <script src="marked.min.js"></script>
+  <script src="sidepanel.js"></script>
+</body>
+</html>
